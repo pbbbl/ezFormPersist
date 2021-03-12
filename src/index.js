@@ -11,6 +11,17 @@ export default () => {
             if ( field && field.name ) {
                 name = field.name;
             }
+            let options = field.dataset.saveField;
+
+            var expires = 31;
+
+            if ( !isNaN( options ) ) {
+                if ( typeof options !== 'number' ) {
+                    options = parseInt( options );
+                }
+                expires = options;
+            }
+            console.log( 'actual expires', expires );
             var pageId = cleanId();
             var pageName = pageId + '__' + name;
             var siteName = 'user__' + name;
@@ -45,8 +56,8 @@ export default () => {
             field.addEventListener( listenFor, function ( e ) {
                 var obj = fsValidate( e.target.value );
                 if ( obj.valid ) {
-                    Cookies.set( siteName, obj.value );
-                    Cookies.set( pageName, obj.value );
+                    Cookies.set( siteName, obj.value, { expires } );
+                    Cookies.set( pageName, obj.value, { expires } );
                 }
             } );
         } );
