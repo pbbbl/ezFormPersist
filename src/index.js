@@ -23,6 +23,11 @@ export default () => {
             else if ( siteCookie.valid ) {
                 saved = siteCookie;
             }
+            var eventTypes = {
+                input: 'input',
+                textarea: 'keyup',
+                select: 'change'
+            };
             if ( saved ) {
                 var savedValue = '';
                 if ( saved.value != null && saved.value != undefined ) {
@@ -32,13 +37,10 @@ export default () => {
                         savedValue = saved.value;
                     }
                     field.value = savedValue;
+                    field.dispatchEvent( new Event( eventTypes[ tag ] ) );
+                    // el.dispatchEvent( new KeyboardEvent( 'keypress', { 'key': 'a' } ) );
                 }
             }
-            var eventTypes = {
-                input: 'input',
-                textarea: 'keyup',
-                select: 'change'
-            };
             var listenFor = eventTypes[ tag ];
             field.addEventListener( listenFor, function ( e ) {
                 var obj = fsValidate( e.target.value );
@@ -49,6 +51,5 @@ export default () => {
             } );
         } );
     }
-    formSaver();
 };
 
