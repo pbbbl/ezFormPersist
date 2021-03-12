@@ -15,25 +15,28 @@ ezFormPersist();
 </script>
 ```
 ### 1. Using in the Webflow Designer
-#### A. Add the `data-save-field` data-attribute to a suported element
+#### Add the `data-save-field` data-attribute to a suported element
 In the right-hand panel, after selecting a supported element (see below), add the following attribute to the element that you want saved, even after the page is reloaded.
+
 ##### Attribute
 ```
 data-save-field
 ```
 ##### Value
 The `value` represents the number of days the Cookie will last and data will be auto-filled on a form.
+- `true`: Uses default expiration: 31 Days
+- `1` or greater.
 ```
-true 
+true  // 31 Days
 ```
 OR
 ```
 [# of days to expire]
 ```
 ###### NOTE
-- Any number above `1` is valid.
-- Default expiration is `31` days (if value is set to true).
-##### In Code
+- Value: `1` or greater is valid.
+- Value `true` will set expiration to `31` days.
+### 2. Using in HTML
 ````
 <input type="text" data-save-field="true" />
 <!-- Any user-input-value will be saved for 31 days -->
