@@ -26,16 +26,6 @@ data-save-field
 The `value` represents the number of days the Cookie will last and data will be auto-filled on a form.
 - `true`: Uses default expiration: 31 Days
 - `1` or greater.
-```
-true  // 31 Days
-```
-OR
-```
-[# of days to expire]
-```
-###### NOTE
-- Value: `1` or greater is valid.
-- Value `true` will set expiration to `31` days.
 ### 2. Using in HTML
 ````
 <input type="text" data-save-field="true" />
