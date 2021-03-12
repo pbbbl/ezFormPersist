@@ -9,10 +9,10 @@ Add the following code to the bottom of the "Footer Code" in [Webflow Project] /
 *Another option is to use this on any website.*
 ```
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pbbbl/ezFormPersist/dist/ezFormPersist.js"></script>
+
 <script type="text/javascript">
 ezFormPersist();
 </script>
-
 ```
 ### 1. Using in the Webflow Designer
 #### A. Add the `data-save-field` data-attribute to a suported element
