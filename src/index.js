@@ -21,7 +21,7 @@ export default () => {
                 }
                 expires = options;
             }
-            console.log( 'actual expires', expires );
+
             var pageId = cleanId();
             var pageName = pageId + '__' + name;
             var siteName = 'user__' + name;
